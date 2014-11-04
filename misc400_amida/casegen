@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+stage = ARGV[0].to_i
+
+params = [
+  '-n4', # stage 1  [1-50]
+  '-n5', # stage 2  [51-100]
+  '-n6', # stage 3  [101-150]
+  '-n7', # stage 4  [151-200]
+  '-n8', # stage 5  [201-250]
+  '-wn4', # stage 6 [251-300]
+  '-wn5', # stage 7 [301-350]
+  '-wn6', # stage 8 [351-400]
+  '-wn7', # stage 9 [401-450]
+  '-wn8', # stage 10 [451-500]
+  '-rn4', # stage 11 [501-550]
+  '-rn5', # stage 12 [551-600]
+  '-rn6', # stage 13  [601-650]
+  '-rn7', # stage 14  [651-700]
+  '-rn8', # stage 15  [701-750]
+  '-rwn4', # stage 16 [751-800]
+  '-rwn5', # stage 17 [801-850]
+  '-rwn6', # stage 18 [851-900]
+  '-rwn7', # stage 19 [901-950]
+  '-rwn8', # stage 20 [951-1000]
+]
+
+puts `./amida_ev #{params[stage]}`

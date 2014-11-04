@@ -6,3 +6,6 @@ What is the password?
 
 https://s3-ap-northeast-1.amazonaws.com/tkbctf4/rakuda
 ```
+
+## Authors
+maytheplic & 6f70

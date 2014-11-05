@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./static/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="./static/bootstrap/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./static/cards/cards.css">
+		<script src="./static/jquery/jquery-2.1.1.min.js"></script>
+		<script src="./static/jsbn/jsbn.js"></script>
+		<script src="./static/jsbn/jsbn2.js"></script>
+		<script src="./static/jsSHA/sha.js"></script>
+		<script src="./static/bootstrap/bootstrap.min.js"></script>
+        <script src="./static/main.js"></script>
+    </head>
+
+	<script>
+	</script>
+    <body>
+		<div class="container">
+			<div class="playingCards fourColours rotateHand">
+				% for i in range(4):
+					<ul id="drawn_cards_{{i}}" class="table"></ul>
+				% end
+
+				<table class="table" id="deck_area">
+					<tr>
+					% for i in range(4):
+						<td>
+							<ul id="left_cards_{{i}}" class="deck">
+							% for j in range(cards):
+								<li><div class="card back">*</div></li>
+							% end
+							</ul>
+						</td>
+					%end
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="container" id="flag"></div>
+
+		<div class="container">
+			<div class="form-group">
+				<h2>Which is Next, <button class="btn btn-success choice" value="high" disabled="disabled">Higher</button>
+				or <button class="btn btn-info choice" value="low" disabled="disabled">Lower</button> than Previous?</h2>
+
+				<button id="reset_button" class="btn btn-danger" value="reset">Reset</button> 
+
+				<!-- modal -->
+				<div class="modal fade" id="reset_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">Would you like to reset?</h4>
+							</div>
+							<div class="modal-body">
+								If you push Reset button, all data will be deleted.
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+								<button id="reset" type="button" class="btn btn-primary" data-dismiss="modal">Reset</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- modal -->
+			</div>
+		</div>
+    </body>
+	
+	<script>
+		$('#reset_button').click( function (e) {
+				$('#reset_dialog').modal();
+			});
+
+		$('#reset').click( function (e) {
+				fail();
+				location.reload();
+			});
+	</script>
+</html>
